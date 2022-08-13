@@ -34,7 +34,7 @@ export class UsersRepository implements IUsersRepository {
     first_name,
     last_name,
   }: IFindUserByFullNameDTO): Promise<User[] | undefined> {
-    return this.repository.query(
+    return await this.repository.query(
       `SELECT * 
        FROM users 
        WHERE LOWER(first_name) = '${first_name.toLowerCase()}' 
